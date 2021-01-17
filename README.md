@@ -10,7 +10,9 @@ python3 -m venv env
 
 ### Save Stripe Keys in .env file with the following structure 
 #Stripe API keys - see https://stripe.com/docs/development/quickstart#api-keys
+
 STRIPE_PUBLISHABLE_KEY=''
+
 STRIPE_SECRET_KEY= ''
 
 #### Required to run webhook
