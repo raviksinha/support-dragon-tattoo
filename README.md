@@ -13,6 +13,7 @@ python3 -m venv env
 
 STRIPE_PUBLISHABLE_KEY=''
 STRIPE_SECRET_KEY= ''
+
 #### Required to run webhook
 #### See README on how to use the Stripe CLI to setup
 #### Ignore when running `without-webhooks` samples
@@ -21,7 +22,7 @@ STRIPE_WEBHOOK_SECRET= ''
 Environment setup (web client)
 STATIC_DIR=../../client/web
 
-## Install requiremennts 
+## Install requireme\nts 
 pip install -r requirements.txt
 
 ## Run the service 
