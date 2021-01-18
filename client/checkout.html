@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Stripe Payment Page Sample</title>
+    <link href="https://stripe-samples.github.io/developer-office-hours/demo.css" rel="stylesheet" type="text/css">
+    <script src="https://js.stripe.com/v3/"></script>
+
+  </head>
+  <body>
+    <div id="main">
+      <div id="container">
+        
+        <div id="panel">
+          <h1>Checkout</h1>
+
+          <form id="payment-form">
+            <label for="">Card</label>
+            <div id="card-element"></div>
+            <button>Pay $14</button>
+
+          </form>
+          
+          <div id="debug-message"></div>
+        </div>
+      </div>
+    </div>
+
+    <script charset="utf-8">
+     
+      var stripe = Stripe('pk_test_8f9I9ArfAfGEe5OOLpGtop66');
+      var form = document.getElementById('payment-form');
+
+      var elements= stripe.elements();
+      var cardElement = elements.create('card');
+      cardElement.mount('#card-element');
+
+      function debug(message){
+        var debugMessage=document.getElementById('debug-message');
+        console.log('Debug:', message);
+        debugMessage.innerText += '\n' + message;
+      }
+
+      debug('Registering form submit handler..');
+
+      form.addEventListener('submit', function(e)
+      {
+        e.preventDefault();
+
+        //create payment intent (server)
+        debug('Creating payment intent..');
+        fetch('/create-payment-intent', 
+        {
+          method: 'POST',
+          headers: 
+          {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({}),
+        })
+        .then((response) => response.json())
+        .then((data) => 
+        {
+          debug('Created payment intent');
+          // debug(('Created payment intent: ') + data.client_secret);
+
+         
+
+          stripe.confirmCardPayment(
+            data.clientSecret, {
+            // data.client_secret, {
+              payment_method: {
+                card: cardElement,
+                billing_details: {
+                  name: 'Customer 1'
+                }
+              }
+            }
+            ).then(function(result) 
+            {
+              if(result.error) 
+              {
+                
+                debug('Payment failed. Please try again');
+                debug(result.error.message);
+              } 
+              else
+              {
+                debug('Payment Intent confirmed. Thanks!');
+                var link = document.getElementById('payment-form');
+                link.style.visibility = 'hidden';
+                //debug(JSON.stringify(result, null, 2));
+              }
+
+            })
+
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+      })
+      
+    </script>
+  </body>
+</html>
