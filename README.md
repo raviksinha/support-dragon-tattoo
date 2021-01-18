@@ -21,7 +21,10 @@ see https://stripe.com/docs/development/quickstart#api-keys
 
 ##### For `STRIPE_WEBHOOK_SECRET`:
 run `stripe listen --forward-to localhost:4242/webhook`
-copy Ready! Your webhook signing secret is `<YOUR_STRIPE_WEBHOOK_SECRET>`
+
+
+The console should display: Ready! Your webhook signing secret is `<YOUR_STRIPE_WEBHOOK_SECRET>`
+
 
 
 ## Install requirements 
