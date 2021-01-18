@@ -3,10 +3,10 @@ Dummy ecommerce site with python-flask backend and Stripe integration
 
 To run do the following
 ## Create a virtual environment
-python3 -m venv env
+`python3 -m venv env`
 
 ## Activate the environmennt
-. ./env/bin/activate
+`. ./env/bin/activate`
 
 ### Save Stripe Keys in .env file with the following structure 
 #Stripe API keys - see https://stripe.com/docs/development/quickstart#api-keys
@@ -23,7 +23,7 @@ Environment setup (web client)
 STATIC_DIR=../../client/web
 
 ## Install requirements 
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
 ## Run the service 
-python3 server/server.py
+`python3 server/server.py`
