@@ -25,5 +25,5 @@ STATIC_DIR=../../client/web
 ## Install requirements 
 `pip install -r requirements.txt`
 
-## Run the service 
+## Run 
 `python3 server/server.py`
