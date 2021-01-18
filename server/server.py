@@ -1,11 +1,5 @@
 #! /usr/bin/env python3.6
 
-"""
-server.py
-Stripe Sample.
-Python 3.6 or newer required.
-"""
-
 import stripe
 import json
 import os
@@ -17,15 +11,8 @@ from dotenv import load_dotenv, find_dotenv
 load_dotenv(find_dotenv())
 stripe.api_key = os.getenv('STRIPE_SECRET_KEY')
 
-static_dir = str(os.path.abspath(os.path.join(__file__ , "..", os.getenv("STATIC_DIR"))))
 app = Flask(__name__,
     static_folder='../client', static_url_path="", template_folder='../client')
-
-
-
-# def update_logs(event_type):
-#         with open("server/logs.json") as f:
-#         logs = json.load(f)
 
 
 
@@ -54,7 +41,6 @@ def create_payment():
         })
     except Exception as e:
         return jsonify(error=str(e)), 403
-
 
 
 @app.route('/webhook', methods=['POST'])
@@ -94,17 +80,6 @@ def webhook_received():
                                                  "billing_details": data['object']['charges']['data'][0]['billing_details']} )
         with open('server/logs.json', 'w') as outfile:
             json.dump(logs, outfile)
-
-    #if event_type == 'charge.succeeded':
-     #   logs["charge.succeeded"].append(data['object']['amount'])
-      #  with open('server/logs.json', 'w') as outfile:
-      #      json.dump(logs, outfile)
-
-    #if event_type == 'charge.succeeded':
-     #   logs["charge.succeeded"].append(data['object']['amount'])
-    #   with open('server/logs.json', 'w') as outfile:
-       #     json.dump(logs, outfile)
-
 
     return jsonify({'status': 'success'})
 
