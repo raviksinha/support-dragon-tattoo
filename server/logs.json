@@ -1,1 +1,1 @@
-{"payment_intent.succeeded": [{"amount": 1400, "billing_details": {"address": {"city": null, "country": null, "line1": null, "line2": null, "postal_code": "42424", "state": null}, "email": null, "name": "Customer 1", "phone": null}}, {"amount": 1400, "billing_details": {"address": {"city": null, "country": null, "line1": null, "line2": null, "postal_code": "22222", "state": null}, "email": null, "name": "Customer 1", "phone": null}}]}
+{"payment_intent.succeeded": []}
