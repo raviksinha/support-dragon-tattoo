@@ -8,19 +8,21 @@ To run do the following
 ## Activate the environmennt
 `. ./env/bin/activate`
 
-### Save Stripe Keys in .env file with the following structure 
-#Stripe API keys - see https://stripe.com/docs/development/quickstart#api-keys
-
+## Create .env file with the following keys 
+```
 STRIPE_PUBLISHABLE_KEY=''
-
 STRIPE_SECRET_KEY= ''
-
-#### Required to run webhook
-#### Ignore when running `without-webhooks` samples
 STRIPE_WEBHOOK_SECRET= ''
+```
 
-Environment setup (web client)
-STATIC_DIR=../../client/web
+##### For `STRIPE_PUBLISHABLE_KEY`, `STRIPE_SECRET_KEY`
+see https://stripe.com/docs/development/quickstart#api-keys
+
+
+##### For `STRIPE_WEBHOOK_SECRET`:
+run `stripe listen --forward-to localhost:4242/webhook`
+copy Ready! Your webhook signing secret is `<YOUR_STRIPE_WEBHOOK_SECRET>`
+
 
 ## Install requirements 
 `pip install -r requirements.txt`
