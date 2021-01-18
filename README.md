@@ -21,6 +21,8 @@ see https://stripe.com/docs/development/quickstart#api-keys
 
 ##### For `STRIPE_WEBHOOK_SECRET`:
 Install STRIPE CLI, see https://stripe.com/docs/stripe-cli
+
+
 run `stripe listen --forward-to localhost:4242/webhook`
 
 
