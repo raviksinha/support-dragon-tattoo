@@ -1,4 +1,4 @@
-# dragon-tattoo-on-sale
+# support-dragon-tattoo
 Dummy ecommerce site with python-flask backend and Stripe integration
 
 
