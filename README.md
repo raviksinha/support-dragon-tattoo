@@ -35,7 +35,7 @@ The console should display: Ready! Your webhook signing secret is `<YOUR_STRIPE_
 
 ## Run 
 `python3 server/server.py`
-
+Follow the link on the terminal (localhost:4242) to open the web-site on your browser. 
 
 ## Find
 Logs for completed orders to be fullfilled can be seen in `server/logs.json`
